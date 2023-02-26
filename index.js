@@ -29,12 +29,12 @@ app.post('/', async function (req, res) {
     const mailOptions = {
         from: name, // sender address
         to: smtp_receivers_email, // list of receivers
-        subject: "Анкета клиента Silevans", // subject line
+        subject: "Новая анкета на сайте Silevans", // subject line
         html: `<h1>Новое письмо от потенциального заказчика.</h1>
-<div>Посетитем сайта была заполнена и отравлена анкета. Данные клиента:
-<div>Имя: ${name}, email: ${email}, телефон: ${phone}, компания\проект: ${companyOrProject}, сайт: ${site}, возраст компани: ${ageOfCompany}, сообщение: ${message}.</div>
-<div>Интересует: ${interest}.</div>
-</div>`
+<h2>Посетитем сайта была заполнена и отравлена анкета. Данные клиента:
+<h3><b>Имя: ${name}, email: ${email}, телефон: ${phone}, компания или проект: ${companyOrProject}, сайт: ${site}, возраст компани: ${ageOfCompany}, сообщение: ${message}.</b></h3>
+<h3><b>Интересует: ${interest}.</b></h3>
+</h2>`
     };
 
     await transporter.sendMail(mailOptions);
