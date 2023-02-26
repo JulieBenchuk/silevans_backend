@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "silevans_gmail_nodejs",
+  "name": "silevans-backend",
   "builds": [
     { "src": "index.js", "use": "@vercel/node" }
   ],
