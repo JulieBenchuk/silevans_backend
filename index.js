@@ -11,6 +11,7 @@ app.use(bodyParser.json())
 const smtp_login = process.env.SMTP_LOGIN
 const smtp_password = process.env.SMTP_PASSWORD
 const smtp_receivers_email = process.env.SMTP_RECEIVERS_EMAIL
+const port = process.env.PORT
 
 let transporter = nodemailer.createTransport({
     service: 'gmail',
