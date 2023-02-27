@@ -32,7 +32,7 @@ app.post('/', async function (req, res) {
         html: `<h1>Новое письмо от потенциального заказчика.</h1>
 <h2>Посетителем сайта была заполнена и отравлена анкета. Данные клиента:
 <h3><b>Имя: ${name}, email: ${email}, телефон: ${phone}, компания или проект: ${companyOrProject ? companyOrProject : "нет данных"}, сайт: ${site ? site : "нет данных"}, возраст компани: ${ageOfCompany ? ageOfCompany : "нет данных"}, сообщение: ${message ? message : "нет данных"}.</b></h3>
-<h3><b>Интересует: ${interest}.</b></h3>
+<h3><b>Интересует: ${interest.length>0 ? interest : "не выбрано"}.</b></h3>
 </h2>`
     };
 
