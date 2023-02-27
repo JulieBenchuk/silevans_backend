@@ -21,7 +21,6 @@ let transporter = nodemailer.createTransport({
     }
 })
 
-
 app.post('/', async function (req, res) {
 
     const {name, phone, email, companyOrProject, site, ageOfCompany, message, interest} = req.body
@@ -32,7 +31,7 @@ app.post('/', async function (req, res) {
         subject: "Новая анкета на сайте Silevans", // subject line
         html: `<h1>Новое письмо от потенциального заказчика.</h1>
 <h2>Посетителем сайта была заполнена и отравлена анкета. Данные клиента:
-<h3><b>Имя: ${name}, email: ${email}, телефон: ${phone}, компания или проект: ${companyOrProject}, сайт: ${site}, возраст компани: ${ageOfCompany}, сообщение: ${message}.</b></h3>
+<h3><b>Имя: ${name}, email: ${email}, телефон: ${phone}, компания или проект: ${companyOrProject ? companyOrProject : "нет данных"}, сайт: ${site ? site : "нет данных"}, возраст компани: ${ageOfCompany ? ageOfCompany : "нет данных"}, сообщение: ${message ? message : "нет данных"}.</b></h3>
 <h3><b>Интересует: ${interest}.</b></h3>
 </h2>`
     };
