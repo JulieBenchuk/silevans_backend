@@ -40,6 +40,23 @@ app.post('/', async function (req, res) {
     res.send("Ok")
 })
 
+app.post('/callback', async function(req, res){
+    const {name, phone} = req.body
+
+    const mailOptions = {
+        from: name, // sender address
+        to: smtp_receivers_email, // list of receivers
+        subject: "Заказан звонок на сайте Silevans", // subject line
+        html: `<h1>Новое письмо от потенциального заказчика.</h1>
+                <h2>Посетителем сайта был заказан звонок. Данные клиента:
+                <h3><b>Имя: ${name}, телефон: ${phone}.</b></h3>
+                </h2>`
+    };
+
+    await transporter.sendMail(mailOptions);
+    res.send("Ok")
+})
+
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
 })
